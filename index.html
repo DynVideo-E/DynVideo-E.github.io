@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DynVideo-E Project Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/inter-ui@3.15.0/font/css/inter.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1, h3, h4 {
+            font-weight: 500; /* Use a slightly bolder weight for headings */
+            color: #363636;
+        }
+
+        .box {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .method-image {
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .input-section, .results-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* This will center the content vertically */
+        }
+
+        .input-section {
+            background-color: #f2f7fa; 
+            padding: 20px;
+            margin-bottom: 5px;
+        }
+
+        .results-section {
+            padding: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            margin: 20px 0;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(to right, #d4d7d9, #f2f7fa, #d4d7d9);
+            margin: 40px 0;
+        }
+    </style>
+
+    
+</head>
+<body>
+
+    <section class="section">
+        <div class="container">
+
+            <h1 class="title is-2">DynVideo-E: Harnessing Dynamic NeRF for Large-Scale Motion- and View-Change Human-Centric Video Editing</h1>
+            <p class="subtitle is-4">Author: Anonymous</p>
+
+            <!-- Abstract -->
+            <section class="section">
+                <h3 class="title is-3">Abstract</h3>
+                <p>
+                    Despite recent research advances in diffusion-based video editing, existing methods suffer from short video lengths, small-scale changes in motion and viewpoint, and are primarily limited to text-based editing. To tackle these challenges, we propose \method{} that for the first time introduces dynamic Neural Radiance Fields (NeRF) into the task of image-based human-centric video editing. Such a video-NeRF representation effectively aggregates the large-scale motion- and view-change video information into a 3D background space and a 3D canonical human space through the reconstructed the human pose guided deformation field, easing the video editing problem to a static 3D editing task, and the edited contents can be accurately propagated to the entire video via the deformation fields. To enable image-based editing in such 3D canonical spaces, we design a set of strategies including multi-view multi-pose Score Distillation Sampling (SDS) from both 2D personalized diffusion priors and 3D diffusion priors, reconstruction losses on the reference image, text-guided local parts super-resolution, and style transfer for 3D background space. Extensive experiments show that \method{} significantly outperforms SOTA approaches on two challenging datasets. Compelling video comparisons are provided in the supplementary. Our code and data will be released to the community.
+                </p>
+            </section>
+
+            <!-- Method Overview -->
+            <section class="section">
+                <h3 class="title is-3">Method Overview</h3>
+                <figure class="image method-image">
+                    <img src="./Framework_v3.png" alt="Method Overview">
+                </figure>
+            </section>
+
+            <!-- <div class="section-divider"></div> -->
+            
+            <section class="section">
+                <h3 class="title is-3">Results</h3>
+                <!-- Placeholder for the results -->
+                <div id="resultsContainer"></div>
+            </section>
+
+        </div>
+    </section>
+
+<script>
+    function addResultGroup(datasetName, originalVideoPath, referenceSubjectImagePath, referenceBackgroundStyleImagePath, textPrompt, ourMethodVideoPath, baselines) {
+        const baseContainer = document.getElementById('resultsContainer');
+
+        // Create a box for the entire result group
+        const container = document.createElement('div');
+        container.classList.add('box');
+        baseContainer.appendChild(container);
+
+        // Dataset Title
+        const title = document.createElement('h4');
+        title.classList.add('title', 'is-5');
+        title.textContent = datasetName;
+        container.appendChild(title);
+
+        // Inputs and Ours Results in one row
+        const columns = document.createElement('div');
+        columns.classList.add('columns');
+        container.appendChild(columns);
+
+        // Input Section with distinct style
+        const inputSection = document.createElement('div');
+        inputSection.classList.add('column', 'is-8', 'input-section');
+        columns.appendChild(inputSection);
+
+        const innerColumns = document.createElement('div');
+        innerColumns.classList.add('columns');
+        inputSection.appendChild(innerColumns);
+
+        // Input Video
+        const inputVideoColumn = document.createElement('div');
+        inputVideoColumn.classList.add('column', 'is-6');
+        innerColumns.appendChild(inputVideoColumn);
+
+        const inputVideo = document.createElement('video');
+        inputVideo.setAttribute('controls', '');
+        inputVideo.setAttribute('width', '100%');
+        inputVideoColumn.appendChild(inputVideo);
+
+        const inputVideoSource = document.createElement('source');
+        inputVideoSource.setAttribute('src', originalVideoPath);
+        inputVideoSource.setAttribute('type', 'video/mp4');
+        inputVideo.appendChild(inputVideoSource);
+
+        const inputVideoLabel = document.createElement('p');
+        inputVideoLabel.classList.add('has-text-centered');
+        inputVideoLabel.textContent = 'Original Video';
+        inputVideoColumn.appendChild(inputVideoLabel);
+
+        // Reference Images and Text Prompt
+        const referencesColumn = document.createElement('div');
+        referencesColumn.classList.add('column', 'is-6');
+        innerColumns.appendChild(referencesColumn);
+
+        const referencesInnerColumns = document.createElement('div');
+        referencesInnerColumns.classList.add('columns', 'is-flex', 'is-align-items-center');
+        referencesColumn.appendChild(referencesInnerColumns);
+
+        // Reference Subject Image
+        const refSubjectColumn = document.createElement('div');
+        refSubjectColumn.classList.add('column', 'is-half');
+        referencesInnerColumns.appendChild(refSubjectColumn);
+
+        const refSubjectFigure = document.createElement('figure');
+        refSubjectFigure.classList.add('image');
+        refSubjectColumn.appendChild(refSubjectFigure);
+
+        const refSubjectImage = document.createElement('img');
+        refSubjectImage.setAttribute('src', referenceSubjectImagePath);
+        refSubjectFigure.appendChild(refSubjectImage);
+
+        // Reference Background Style Image
+        const refBackgroundColumn = document.createElement('div');
+        refBackgroundColumn.classList.add('column', 'is-half');
+        referencesInnerColumns.appendChild(refBackgroundColumn);
+
+        const refBackgroundFigure = document.createElement('figure');
+        refBackgroundFigure.classList.add('image');
+        refBackgroundColumn.appendChild(refBackgroundFigure);
+
+        const refBackgroundImage = document.createElement('img');
+        refBackgroundImage.setAttribute('src', referenceBackgroundStyleImagePath);
+        refBackgroundFigure.appendChild(refBackgroundImage);
+
+        // Text Prompt below the images
+        const textPromptBox = document.createElement('div');
+        textPromptBox.classList.add('box');
+        referencesColumn.appendChild(textPromptBox);
+
+        const textPromptElem = document.createElement('p');
+        textPromptElem.innerHTML = 'Text Prompt: <em>' + textPrompt + '</em>';
+        textPromptBox.appendChild(textPromptElem);
+
+        // Ours Results with distinct style
+        const oursResultsColumn = document.createElement('div');
+        oursResultsColumn.classList.add('column', 'is-4', 'results-section');
+        columns.appendChild(oursResultsColumn);
+
+        const oursVideo = document.createElement('video');
+        oursVideo.setAttribute('controls', '');
+        oursVideo.setAttribute('width', '100%');
+        oursResultsColumn.appendChild(oursVideo);
+
+        const oursVideoSource = document.createElement('source');
+        oursVideoSource.setAttribute('src', ourMethodVideoPath);
+        oursVideoSource.setAttribute('type', 'video/mp4');
+        oursVideo.appendChild(oursVideoSource);
+
+        const oursLabel = document.createElement('p');
+        oursLabel.classList.add('has-text-centered');
+        oursLabel.textContent = 'Ours';
+        oursResultsColumn.appendChild(oursLabel);
+
+
+        // Baseline Results
+        const baselineTitle = document.createElement('h6');
+        baselineTitle.classList.add('title', 'is-6');
+        baselineTitle.textContent = "Baseline Results";
+        container.appendChild(baselineTitle);
+
+        const baselineColumns = document.createElement('div');
+        baselineColumns.classList.add('columns', 'is-multiline');
+        container.appendChild(baselineColumns);
+
+        // Iterate over baselines to add them
+        baselines.forEach(baseline => {
+            const baselineColumn = document.createElement('div');
+            baselineColumn.classList.add('column', 'is-3');
+            const baselineVideoWrapper = document.createElement('div');
+            baselineVideoWrapper.classList.add('video-wrapper');
+            const baselineVideo = document.createElement('video');
+            baselineVideo.setAttribute('controls', '');
+            const baselineVideoSource = document.createElement('source');
+            baselineVideoSource.setAttribute('src', baseline.path);
+            baselineVideoSource.setAttribute('type', 'video/mp4');
+            baselineVideo.appendChild(baselineVideoSource);
+            baselineVideoWrapper.appendChild(baselineVideo);
+            baselineColumn.appendChild(baselineVideoWrapper);
+            const baselineName = document.createElement('p');
+            baselineName.classList.add('has-text-centered');
+            baselineName.textContent = baseline.name;
+            baselineColumn.appendChild(baselineName);
+            baselineColumns.appendChild(baselineColumn);
+        });
+
+        // Maybe add a little space between boxes
+        const spacer = document.createElement('div');
+        spacer.style.height = '20px';
+        container.appendChild(spacer);
+    }
+
+    // Example usage:
+    addResultGroup(
+        'HOSNeRF Data 1 (Backpack - Hulk)',
+        './Human_Evaluation/Source/Backpack.mp4',
+        './reference/Backpack/Hulk_foreground_ref.png',
+        './reference/Backpack/Hulk_bkgd_ref_"Hulk".jpg',
+        'Your text prompt for Backpack Hulk Scene here',
+        './Human_Evaluation/Ours/Backpack_Hulk_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Human_Evaluation/Rerenderavideo/Backpack_Hulk_full.mp4' },
+            { name: 'Stable Video', path: './Human_Evaluation/Stablevideo/Backpack_Hulk_full.mp4' },
+            { name: 'T2V Zero', path: './Human_Evaluation/T2vzero/Backpack_Hulk_full.mp4' },
+            { name: 'Text2Live', path: './Human_Evaluation/Text2live/Backpack_Hulk_full.mp4' },
+            // ... other baselines ...
+        ]
+    );
+
+    addResultGroup(
+        'HOSNeRF Data 1 (Backpack - 2)',
+        './Human_Evaluation/Source/Backpack.mp4',
+        './reference/Backpack/Hulk_foreground_ref.png',
+        './reference/Backpack/Hulk_bkgd_ref_"Hulk".jpg',
+        'Your text prompt for Backpack Hulk Scene here',
+        './Human_Evaluation/Ours/Backpack_Hulk_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Human_Evaluation/Rerenderavideo/Backpack_Hulk_full.mp4' },
+            { name: 'Stable Video', path: './Human_Evaluation/Stablevideo/Backpack_Hulk_full.mp4' },
+            { name: 'T2V Zero', path: './Human_Evaluation/T2vzero/Backpack_Hulk_full.mp4' },
+            { name: 'Text2Live', path: './Human_Evaluation/Text2live/Backpack_Hulk_full.mp4' },
+            // ... other baselines ...
+        ]
+    );
+</script>
+
+</body>
+</html>
