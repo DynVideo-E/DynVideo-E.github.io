@@ -277,7 +277,7 @@
     );
 
     addResultGroup(
-        'HOSNeRF Data 1 (Backpack - Naruto Uzumaki)',
+        'HOSNeRF Data 2 (Backpack - Naruto Uzumaki)',
         './Results/Source/Backpack.mp4',
         './References/Backpack/Naruto_Foreground.png',
         './References/Backpack/Naruto_Background.jpg',
@@ -291,6 +291,22 @@
             // ... other baselines ...
         ]
     );
+
+    addResultGroup(
+        'HOSNeRF Data 3 (Tennis - Jacket Man)',
+        './Results/Source/Tennis.mp4',
+        './References/Tennis/Foreground.png',
+        './References/Tennis/Background.jpg',
+        'A man with blond hair wearing a brown leather jacket',
+        './Results/Ours/Tennis_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Tennis_full.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Tennis_full.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Tennis_full.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Tennis_full.mp4' },
+            // ... other baselines ...
+        ]
+    );    
 </script>
 
 </body>
