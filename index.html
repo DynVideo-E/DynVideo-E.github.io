@@ -329,7 +329,7 @@
         './Results/Source/Dance.mp4',
         './References/Dance/Foreground.png',
         './References/Dance/Background.jpg',
-        'A black man wearing satin pyjamas',
+        'A man wearing a Hawaiian shirt, sunglasses and shorts',
         './Results/Ours/Dance_full.mp4',
         [
             { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Dance_full.mp4' },
@@ -357,7 +357,7 @@
     );        
 
     addResultGroup(
-        'NeuMan Data 1 (Lab)',
+        'NeuMan Data 7 (Lab)',
         './Results/Source/Lab.mp4',
         './References/Lab/Foreground.png',
         './References/Lab/Background.jpg',
@@ -373,7 +373,7 @@
     );        
     
     addResultGroup(
-        'NeuMan Data 2 (Jogging)',
+        'NeuMan Data 8 (Jogging)',
         './Results/Source/Jogging.mp4',
         './References/Jogging/Foreground.png',
         './References/Jogging/Background.jpg',
@@ -389,7 +389,7 @@
     );      
 
     addResultGroup(
-        'NeuMan Data 3 (Seattle)',
+        'NeuMan Data 9 (Seattle)',
         './Results/Source/Seattle.mp4',
         './References/Seattle/Foreground.png',
         './References/Seattle/Background.jpg',
@@ -405,7 +405,7 @@
     );          
 
     addResultGroup(
-        'NeuMan Data 4 (Bike)',
+        'NeuMan Data 10 (Bike)',
         './Results/Source/Bike.mp4',
         './References/Bike/Foreground.png',
         './References/Bike/Background.jpg',
@@ -421,7 +421,7 @@
     );          
 
     addResultGroup(
-        'NeuMan Data 5 (Parkinglot)',
+        'NeuMan Data 11 (Parkinglot)',
         './Results/Source/Parkinglot.mp4',
         './References/Parkinglot/Foreground.png',
         './References/Parkinglot/Background.jpg',
@@ -437,7 +437,7 @@
     );        
     
     addResultGroup(
-        'NeuMan Data 6 (Citron)',
+        'NeuMan Data 12 (Citron)',
         './Results/Source/Citron.mp4',
         './References/Citron/Foreground.png',
         './References/Citron/Background.jpg',
@@ -451,6 +451,198 @@
             // ... other baselines ...
         ]
     );          
+
+    addResultGroup(
+        'HOSNeRF Data 13 (Backpack - Hulk)',
+        './Results/Source/Backpack.mp4',
+        './References/Backpack/Hulk_Foreground.png',
+        './References/Backpack/Hulk_Background.jpg',
+        'Hulk',
+        './Results/Ours/Backpack_Hulk.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Backpack_Hulk.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Backpack_Hulk.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Backpack_Hulk.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Backpack_Hulk.mp4' },
+            // ... other baselines ...
+        ]
+    );
+
+    addResultGroup(
+        'HOSNeRF Data 14 (Backpack - Naruto Uzumaki)',
+        './Results/Source/Backpack.mp4',
+        './References/Backpack/Naruto_Foreground.png',
+        './References/Backpack/Naruto_Background.jpg',
+        'Naruto Uzumaki',
+        './Results/Ours/Backpack_Naruto.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Backpack_Naruto.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Backpack_Naruto.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Backpack_Naruto.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Backpack_Naruto.mp4' },
+            // ... other baselines ...
+        ]
+    );
+
+    addResultGroup(
+        'HOSNeRF Data 15 (Tennis)',
+        './Results/Source/Tennis.mp4',
+        './References/Tennis/Foreground.png',
+        './References/Tennis/Background.jpg',
+        'A man with blond hair wearing a brown leather jacket',
+        './Results/Ours/Tennis.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Tennis.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Tennis.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Tennis.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Tennis.mp4' },
+            // ... other baselines ...
+        ]
+    );    
+
+    addResultGroup(
+        'HOSNeRF Data 16 (Playground)',
+        './Results/Source/Playground.mp4',
+        './References/Playground/Foreground.png',
+        './References/Playground/Background.jpg',
+        'A black man wearing satin pyjamas',
+        './Results/Ours/Playground.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Playground.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Playground.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Playground.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Playground.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+
+    addResultGroup(
+        'HOSNeRF Data 17 (Dance)',
+        './Results/Source/Dance.mp4',
+        './References/Dance/Foreground.png',
+        './References/Dance/Background.jpg',
+        'A man wearing a Hawaiian shirt, sunglasses and shorts',
+        './Results/Ours/Dance.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Dance.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Dance.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Dance.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Dance.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+    
+    addResultGroup(
+        'HOSNeRF Data 18 (Lounge)',
+        './Results/Source/Lounge.mp4',
+        './References/Lounge/Foreground.png',
+        './References/Lounge/Background.jpg',
+        'A woman wearing a white shirt and blue jeans',
+        './Results/Ours/Lounge.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Lounge.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Lounge.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Lounge.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Lounge.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+
+    addResultGroup(
+        'NeuMan Data 19 (Lab)',
+        './Results/Source/Lab.mp4',
+        './References/Lab/Foreground.png',
+        './References/Lab/Background.jpg',
+        'Luffy',
+        './Results/Ours/Lab.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Lab.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Lab.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Lab.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Lab.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+    
+    addResultGroup(
+        'NeuMan Data 20 (Jogging)',
+        './Results/Source/Jogging.mp4',
+        './References/Jogging/Foreground.png',
+        './References/Jogging/Background.jpg',
+        'Barack Obama wearing a black suit',
+        './Results/Ours/Jogging.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Jogging.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Jogging.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Jogging.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Jogging.mp4' },
+            // ... other baselines ...
+        ]
+    );      
+
+    addResultGroup(
+        'NeuMan Data 21 (Seattle)',
+        './Results/Source/Seattle.mp4',
+        './References/Seattle/Foreground.png',
+        './References/Seattle/Background.jpg',
+        'A woman wearing long yoga pants',
+        './Results/Ours/Seattle.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Seattle.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Seattle.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Seattle.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Seattle.mp4' },
+            // ... other baselines ...
+        ]
+    );          
+
+    addResultGroup(
+        'NeuMan Data 22 (Bike)',
+        './Results/Source/Bike.mp4',
+        './References/Bike/Foreground.png',
+        './References/Bike/Background.jpg',
+        'A slim man wearing a navy blazer and gray trousers',
+        './Results/Ours/Bike.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Bike.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Bike.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Bike.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Bike.mp4' },
+            // ... other baselines ...
+        ]
+    );          
+
+    addResultGroup(
+        'NeuMan Data 23 (Parkinglot)',
+        './Results/Source/Parkinglot.mp4',
+        './References/Parkinglot/Foreground.png',
+        './References/Parkinglot/Background.jpg',
+        'Thanos',
+        './Results/Ours/Parkinglot.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Parkinglot.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Parkinglot.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Parkinglot.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Parkinglot.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+    
+    addResultGroup(
+        'NeuMan Data 24 (Citron)',
+        './Results/Source/Citron.mp4',
+        './References/Citron/Foreground.png',
+        './References/Citron/Background.jpg',
+        'Spiderman',
+        './Results/Ours/Citron.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Citron.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Citron.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Citron.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Citron.mp4' },
+            // ... other baselines ...
+        ]
+    );        
 </script>
 
 </body>
