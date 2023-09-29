@@ -293,7 +293,7 @@
     );
 
     addResultGroup(
-        'HOSNeRF Data 3 (Tennis - Jacket Man)',
+        'HOSNeRF Data 3 (Tennis)',
         './Results/Source/Tennis.mp4',
         './References/Tennis/Foreground.png',
         './References/Tennis/Background.jpg',
@@ -307,6 +307,70 @@
             // ... other baselines ...
         ]
     );    
+
+    addResultGroup(
+        'HOSNeRF Data 4 (Playground)',
+        './Results/Source/Playground.mp4',
+        './References/Playground/Foreground.png',
+        './References/Playground/Background.jpg',
+        'A black man wearing satin pyjamas',
+        './Results/Ours/Playground_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Playground_full.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Playground_full.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Playground_full.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Playground_full.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+
+    addResultGroup(
+        'HOSNeRF Data 5 (Dance)',
+        './Results/Source/Dance.mp4',
+        './References/Dance/Foreground.png',
+        './References/Dance/Background.jpg',
+        'A black man wearing satin pyjamas',
+        './Results/Ours/Dance_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Dance_full.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Dance_full.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Dance_full.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Dance_full.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+    
+    addResultGroup(
+        'HOSNeRF Data 5 (Dance)',
+        './Results/Source/Dance.mp4',
+        './References/Dance/Foreground.png',
+        './References/Dance/Background.jpg',
+        'A man wearing a Hawaiian shirt, sunglasses and shorts',
+        './Results/Ours/Dance_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Dance_full.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Dance_full.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Dance_full.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Dance_full.mp4' },
+            // ... other baselines ...
+        ]
+    );        
+    
+    addResultGroup(
+        'HOSNeRF Data 6 (Lounge)',
+        './Results/Source/Lounge.mp4',
+        './References/Lounge/Foreground.png',
+        './References/Lounge/Background.jpg',
+        'A woman wearing a white shirt and blue jeans',
+        './Results/Ours/Lounge_full.mp4',
+        [
+            { name: 'Rerender-A-Video', path: './Results/Rerenderavideo/Lounge_full.mp4' },
+            { name: 'Stable Video', path: './Results/Stablevideo/Lounge_full.mp4' },
+            { name: 'T2V Zero', path: './Results/T2vzero/Lounge_full.mp4' },
+            { name: 'Text2Live', path: './Results/Text2live/Lounge_full.mp4' },
+            // ... other baselines ...
+        ]
+    );        
 </script>
 
 </body>
